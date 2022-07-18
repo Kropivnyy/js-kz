@@ -1,3 +1,24 @@
+// 0
+// NaN
+// ""
+// undefined
+// null
+// false
+
+// let name = 'Sasha';
+// console.log(name);
+// name = 'Lesha';
+// console.log(name);
+// name = 'Olya';
+// console.log(name);
+// let age = 22;
+// age = 44;
+// console.log(age);
+
+// Number('25,7px') // NaN
+// Number.parseInt('257px') // 257
+// Number.parseFloat('25.7.6px') // 25.7
+
 // # Модуль 1. Занятие 1. Переменные, типы и операторы
 
 // ## Example 1 - Математические операторы
@@ -6,10 +27,10 @@
 
 // const apples = 47;
 // const grapes = 135;
-// const total = ;
-// console.log(total)
-// const diff = ;
-// console.log(diff)
+// const total = apples + grapes;
+// console.log('Здесь будет сумма:', total);
+// const diff = apples - grapes;
+// console.log('А здесь - разница:', diff);
 
 // ## Example 2 - Комбинированные операторы
 
@@ -17,6 +38,7 @@
 
 // let students = 100;
 // students = students + 50;
+// students += 50;
 // console.log(students);
 
 // ## Example 3 - Приоритет операторов
@@ -24,7 +46,7 @@
 // Разбери приоритет операторов в инструкции присвоения значения переменной
 // `result`.
 
-// const result = 108 + 223 - 2 * 5;
+// const result = 108 + (223 - 2) * 5;
 // console.log(result);
 
 // ## Example 4 - Класс Math
@@ -33,7 +55,11 @@
 // переменной `value`. Используй методы `Math.floor()`, `Math.ceil()` и
 // `Math.round()`. Проверь что будет в консоли при значениях `27.3` и `27.9`.
 
-// const value = 27.5;
+// const value = 27.49999;
+// const roundedValue = Math.floor(value);
+// console.log('Floor:', Math.floor(value));
+// console.log('Ceil:', Math.ceil(value));
+// console.log('Round:', Math.round(value));
 
 // ## Example 5 - Шаблонные строки
 
@@ -43,8 +69,11 @@
 // const companyName = 'Cyberdyne Systems';
 // const repairBots = 150;
 // const defenceBots = 50;
-// const message = ``;
+// const totalBots = repairBots + defenceBots;
+// const message = `${companyName} has ${totalBots} bots in stock`;
+// const message2 = `${totalBots} is available now`;
 // console.log(message); // "Cyberdyne Systems has 200 bots in stock"
+// console.log(message2);
 
 // ## Example 6 - Методы строк и чейнинг
 
@@ -60,9 +89,16 @@
 
 // let weight = '88,3';
 // let height = '1.75';
+// height = Number.parseFloat(height);
 
-// const bmi = ;
-// console.log(bmi); // 28.8
+// // weight = weight.replace(',', '.');
+// weight = Number.parseFloat(weight.replace(',', '.'));
+
+// console.log('weight', weight);
+
+// const bmi = weight / Math.pow(height, 2);
+// const normalizedBmi = bmi.toFixed(1);
+// console.log(normalizedBmi); // 28.8
 
 // ## Example 7 - Операторы сравнения и приведение типов
 
@@ -130,10 +166,10 @@
 // скрипта для слепдующих значений переменной `incomingValue`: null, undefined, 0,
 // false. Используй оператор `??` (nullish coalescing operator).
 
-// const incomingValue = 5;
+// const incomingValue = NaN;
 // const defaultValue = 10;
-// const value = incomingValue || defaultValue;
-// console.log(value);
+// const value = incomingValue ?? defaultValue;
+// console.log('value', value);
 
 // ## Example 10 - Опертор % и методы строк
 
