@@ -1,3 +1,7 @@
+// const min = 20;
+// const max = 50;
+// console.log(Math.random() * (max - min) + min);
+
 // # Модуль 1. Занятие 2. Ветвления. Циклы
 
 // ## Example 1 - Ввод пользователя и ветвления
@@ -7,15 +11,31 @@
 // `ECMAScript`, то показывай alert со строкой `"Верно!"`, в противном случае -
 // `"Не знаете? ECMAScript!"`
 
+// const answer = prompt('Какое официальное название JavaScript?');
+// answer = answer.toLowerCase();
+
+// if (answer === 'ecmascript') {
+//   alert('Верно!');
+// } else {
+//   alert('Не знаете? ECMAScript!');
+// }
+
 // ## Example 2 - Отображение времени (if...else)
 
 // Напиши скрипт для отображения часов и минут в консоли браузера в виде строки
 // формата `"14 ч. 26 мин."`. Если значение переменной `minutes` равно `0`, то
 // выводи строку `"14 ч."`, без минут.
 
-// const hours = 14;
-// const minutes = 26;
+// const hours = 22;
+// const minutes = 30;
 // let timestring;
+
+// if (minutes === 0) {
+//   timestring = `${hours} ч.`;
+// } else {
+//   timestring = `${hours} ч. ${minutes} мин.`;
+// }
+// console.log(timestring);
 
 // ## Example 3 - Ветвеления
 
@@ -24,7 +44,21 @@
 // в консоль строку `"Это ноль"`. Если передали отрицательное число, в консоли
 // должна быть строка `"Это отрицательное число"`.
 
-// const userInput = prompt('Введите число');
+// let answer = prompt('Введите число');
+// // Number('44') // -> 44
+// // Number('44.4z') // -> NaN
+// // Number.parseInt('44.4z'); // -> 44
+// // Number.parseFloat('44.4z'); // -> 44.4
+// answer = answer.replace(',', '.');
+// answer = Number.parseFloat(answer);
+
+// if (answer > 0) {
+//   console.log('Это положительное число');
+// } else if (answer === 0) {
+//   console.log('Это ноль');
+// } else {
+//   console.log('Это отрицательное число');
+// }
 
 // ## Example 4 - Вложенные ветвления
 
@@ -32,8 +66,18 @@
 // значения больше `100`, то выведи в консоль максимальное из них. В противном
 // случае в консоли должна быть сумма значения `b` и числа 512.
 
-// const a = 120;
-// const b = 180;
+// const a = 50;
+// const b = 1000;
+
+// if (a > 100 && b > 100) {
+//   if (a > b) {
+//     console.log(a);
+//   } else {
+//     console.log(b);
+//   }
+// } else {
+//   console.log(b + 512);
+// }
 
 // ## Example 5 - Форматирование ссылки (endsWith)
 
@@ -42,9 +86,17 @@
 // конструкцию `if...else`.
 
 // let link = 'https://my-site.com/about';
-// // Пиши код ниже этой строки
 
-// // Пиши код выше этой строки
+// // link.endsWith('/'); // -> false
+// // !link.endsWith('/'); // -> true
+// // -----------
+// // link.endsWith('/'); // -> true
+// // !link.endsWith('/'); // -> false
+
+// if (!link.endsWith('/')) {
+//   link = link + '/';
+// }
+
 // console.log(link);
 
 // ## Example 6 - Форматирование ссылки (includes и логическое «И»)
@@ -54,15 +106,40 @@
 // том случае, если в `link` есть подстрока `"my-site"`. Используй конструкцию
 // `if...else`.
 
-// let link = 'https://somesite.com/about';
-// // Пиши код ниже этой строки
+// let link = 'https://my-site.com/about/';
 
-// // Пиши код выше этой строки
+// if (!link.endsWith('/') && link.includes('my-site')) {
+//   link = link + '////////////';
+// }
+
 // console.log(link);
+// const link = 'https://my-site.com/about/';
+
+// if (!link.endsWith('/') && link.includes('my-site')) {
+//   console.log(link + '////////////');
+// } else {
+//   console.log(link);
+// }
 
 // ## Example 7 - Форматирование ссылки (тернарный оператор)
 
 // Выполни рефакторинг кода задачи номер 6 используя тернарный оператор.
+// const link = 'https://my-site.com/about';
+
+// if (!link.endsWith('/') && link.includes('my-site')) {
+//   console.log(link + '////////////');
+// } else {
+//   console.log(link);
+// }
+
+// console.log(!link.endsWith('/') && link.includes('my-site') ? link + '////////////' : link);
+
+// if (condition) {
+//   statement_1;
+// } else {
+//   statetent_2;
+// }
+// condition ? statement_1 : statetent_2;
 
 // ## Example 8 - if...else и логические операторы
 
@@ -89,6 +166,21 @@
 
 // const daysUntilDeadline = 5;
 
+// switch (daysUntilDeadline) {
+//   case 0:
+//     console.log('Сегодня');
+//     break;
+//   case 1:
+//     console.log('Завтра');
+//     break;
+//   case 2:
+//     console.log('Послезавтра');
+//     break;
+//   default:
+//     console.log(`Дедлайн через ${daysUntilDeadline} дней`);
+//     break;
+// }
+
 // ## Example 10 - Дедлайн сдачи проекта (switch)
 
 // Выполни рефакторинг кода задачи номер 9 используя `switch`.
@@ -98,8 +190,14 @@
 // Напиши цикл for который выводит в консоль браузера числа по возрастанию от `min`
 // до `max`, но только если число кратное `5`.
 
-// const max = 100;
 // const min = 20;
+// const max = 100;
+
+// for (let i = min; i <= max; i += 1) {
+//   if (i % 5 === 0) {
+//     console.log(i);
+//   }
+// }
 
 // ## Example 12 - Ввод пользователя и ветвления
 
@@ -114,3 +212,31 @@
 
 // - Если введён пароль `"Я админ"`, то вывести строку `"Здравствуйте!"`
 // - Иначе выводить строку `"Неверный пароль"`
+
+// const login = prompt('Введите логин');
+
+// // null; // -> false
+// // !null // -> true
+// // '' // -> false
+// // !'' // -> true
+
+// if (login === 'Админ') {
+//   const password = prompt('Введите пароль');
+
+//   //   if (password === 'Я админ') {
+//   //     console.log('Здравствуйте!');
+//   //   } else {
+//   //     console.log('Неверный пароль');
+//   //   }
+//   //   password === 'Я админ'
+//   //     ? console.log('Здравствуйте!')
+//   //     : console.log('Неверный пароль');
+
+//   console.log(password === 'Я админ' ? 'Здравствуйте!' : 'Неверный пароль');
+// } else if (!login) {
+//   console.log('Отменено');
+// } else {
+//   console.log('Я вас не знаю');
+// }
+
+// } else if (login === null || login === '') {
