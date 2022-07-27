@@ -1,5 +1,34 @@
 // # Модуль 2. Занятие 4. Функции
 
+// function sum(a, b) {
+//   const result = a + b;
+//   // console.log(a + b);
+//   // return a + b;
+//   return;
+// }
+
+// const sumOfAB = sum(100, 33);
+// console.log(sumOfAB);
+
+// function foo(array) {
+//   for (let i = 0; i < array.length; i += 1) {
+//     array[i] *= 2;
+//   }
+// }
+
+// const numbers = [1, 2, 3, 4, 5];
+// foo(numbers);
+// console.log(numbers);
+
+// function sum(a, b) {
+//   const array = [1, 2];
+//   console.log(arguments); // [44, 10, 5, 44, 55, 66]
+//   return a + b;
+// }
+
+// const result = sum(44, 10, 5, 44, 55, 66);
+// console.log(result);
+
 // ## Example 1 - Индекс массы тела
 
 // Напиши функцию `calcBMI(weight, height)` которая рассчитывает и возвращает
@@ -12,8 +41,29 @@
 
 // Индекс массы тела необходимо округлить до одной цифры после запятой;
 
-// const bmi = calcBMI('88,3', '1.75');
-// console.log(bmi); // 28.8
+// 1) спросить у пользователя вес
+// 2) заменить возможные запятые на точки
+// 3) привести строку к числу
+
+// function calcBMI(weight, height) {
+//   const normalizedWeight = Number.parseFloat(weight.replace(',', '.'));
+//   const normalizedHeight = Number.parseFloat(height.replace(',', '.'));
+
+//   const result = normalizedWeight / Math.pow(normalizedHeight, 2);
+
+//   const bmi = Number(result.toFixed(1));
+
+//   // console.log(bmi);
+//   return bmi;
+// }
+
+// const weight = prompt('Введите свой вес');
+// const height = prompt('Введите свой рост в метрах');
+
+// const bmi = calcBMI(weight, height);
+
+// console.log(bmi);
+// console.log(bmi2);
 
 // ## Example 2 - Меньшее из чисел
 
@@ -43,7 +93,13 @@
 // Например для первого элемента массива `['Mango', 'Poly', 'Ajax']` с индексом `0`
 // будет выведено `1 - Mango`, а для индекса 2 выведет `3 - Ajax`.
 
-// function logItems(items) {}
+// function logItems(items) {
+//   // items === ['Mango', 'Poly', 'Ajax']
+//   // items === ['🍎', '🍇', '🍑', '🍌', '🍋']
+//   for (let i = 0; i < items.length; i += 1) {
+//     console.log(`${i + 1} - ${items[i]}`);
+//   }
+// }
 
 // logItems(['Mango', 'Poly', 'Ajax']);
 // logItems(['🍎', '🍇', '🍑', '🍌', '🍋']);
@@ -75,14 +131,26 @@
 
 // ## Example 7 - Среднее значение
 
-// Напишите функцию `calAverage()` которая принимает произвольное кол-во аргументов
+// Напишите функцию `calcAverage()` которая принимает произвольное кол-во аргументов
 // и возвращает их среднее значение. Все аругменты будут только числами.
 
-// function calAverage() {}
+// function calcAverage() {
+//   // [14, 8, 2]
+//   let sum = 0;
+//   for (let i = 0; i < arguments.length; i++) {
+//     sum += arguments[i];
+//   }
+//   const average = sum / arguments.length;
+//   return average;
+// }
+// 1) создать переменную для результата сложения
+// 2) перебрать массив аргументов
+// 3) на каждой итерации прибавлять значение к переменной sum
+// 4) разделить сумму на количество аргументов
 
-// console.log(calAverage(1, 2, 3, 4)); // 2.5
-// console.log(calAverage(14, 8, 2)); // 8
-// console.log(calAverage(27, 43, 2, 8, 36)); // 23.2
+// console.log(calcAverage(1, 2, 3, 4)); // 2.5
+// console.log(calcAverage(14, 8, 2)); // 8
+// console.log(calcAverage(27, 43, 2, 8, 36)); // 23.2
 
 // ## Example 8 - Форматирование времени
 
